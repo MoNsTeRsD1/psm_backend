@@ -8,7 +8,8 @@ module.exports = {
             host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
-            database: "grocery"
+            database: "grocery",
+port: 25060,
         });
 
         const [results, fields] = await connection.execute('SELECT cartItem.*, product.price, product.name, product.image FROM `cartItem` JOIN `product` ON cartItem.productId = product.productId AND `cartItemId` = ?', [id]);
@@ -25,7 +26,8 @@ module.exports = {
             host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
-            database: "grocery"
+            database: "grocery",
+port: 25060,
         });
 
         var results
@@ -46,7 +48,8 @@ module.exports = {
             host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
-            database: "grocery"
+            database: "grocery",
+port: 25060,
         });
 
         var results
@@ -68,7 +71,8 @@ module.exports = {
             host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
-            database: "grocery"
+            database: "grocery",
+port: 25060,
         });
 
         const [results, fields] = await connection.execute('DELETE FROM `cartItem` WHERE `cartItemId` = ?', [id]);
@@ -84,7 +88,8 @@ module.exports = {
             host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
-            database: "grocery"
+            database: "grocery",
+port: 25060,
         });
 
         const [results, fields] = await connection.execute('SELECT cartItem.*, product.price, product.name, product.image FROM `cartItem` JOIN `product` ON cartItem.productId = product.productId  AND `customerId` = ?', [userId]);
@@ -101,7 +106,8 @@ module.exports = {
             host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
-            database: "grocery"
+            database: "grocery",
+port: 25060,
         });
 
         const [results, fields] = await connection.execute('DELETE from `cartItem` WHERE `customerId` = ?', [userId]);

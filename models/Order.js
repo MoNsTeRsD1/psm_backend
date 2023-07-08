@@ -9,7 +9,8 @@ module.exports = {
             host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
-            database: "grocery"
+            database: "grocery",
+port: 25060,
         });
 
         const [results, fields] = await connection.execute('SELECT `order`.*, orderitem.*, product.price, product.name, product.image FROM `order` JOIN `orderitem` ON `order`.orderId = orderitem.orderId JOIN `product` ON orderitem.productId = product.productId WHERE `order`.orderId = ?', [id]);
@@ -25,7 +26,8 @@ module.exports = {
             host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
-            database: "grocery"
+            database: "grocery",
+port: 25060,
         });
         console.log(id)
 
@@ -43,7 +45,7 @@ module.exports = {
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery",
-            port: 25060,
+port: 25060,
         });
         console.log(id)
 
@@ -62,7 +64,8 @@ module.exports = {
             host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
-            database: "grocery"
+            database: "grocery",
+port: 25060,
         });
 
         var results
@@ -84,7 +87,8 @@ module.exports = {
             host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
-            database: "grocery"
+            database: "grocery",
+port: 25060,
         });
 
         var results
@@ -111,7 +115,8 @@ module.exports = {
     //         host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
     //         user: "doadmin",
     //         password: "AVNS_VNd7F-JtcdTrmgqhqbC",
-    //         database: "grocery"
+    //         database: "grocery",
+port: 25060,
     //     });
 
     //     var results
@@ -133,7 +138,8 @@ module.exports = {
     //         host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
     //         user: "doadmin",
     //         password: "AVNS_VNd7F-JtcdTrmgqhqbC",
-    //         database: "grocery"
+    //         database: "grocery",
+port: 25060,
     //     });
 
     //     const [results, fields] = await connection.execute('DELETE FROM `cartItem` WHERE `cartItemId` = ?', [id]);
