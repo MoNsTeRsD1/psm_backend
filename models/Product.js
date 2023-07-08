@@ -6,9 +6,9 @@ module.exports = {
 
     getProduct: async (shopId, productId) => {
         const connection = await mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "",
+            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+            user: "doadmin",
+            password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery"
         });
 
@@ -23,9 +23,9 @@ module.exports = {
     addProduct: async (product) => {
 
         const connection = await mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "",
+            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+            user: "doadmin",
+            password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery"
         });
 
@@ -44,9 +44,9 @@ module.exports = {
 
     updateProduct: async (product) => {
         const connection = await mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "",
+            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+            user: "doadmin",
+            password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery"
         });
 
@@ -66,9 +66,9 @@ module.exports = {
 
     deleteProduct: async (id) => {
         const connection = await mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "",
+            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+            user: "doadmin",
+            password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery"
         });
 
@@ -82,9 +82,9 @@ module.exports = {
 
     getAllProducts: async (shopId) => {
         const connection = await mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "",
+            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+            user: "doadmin",
+            password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery"
         });
 

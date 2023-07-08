@@ -6,9 +6,9 @@ module.exports = {
     // returns all of the order items for this specific order along with the order details
     getOrder: async (id) => {
         const connection = await mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "",
+            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+            user: "doadmin",
+            password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery"
         });
 
@@ -22,9 +22,9 @@ module.exports = {
 
     getAllOrders: async (id) => {
         const connection = await mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "",
+            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+            user: "doadmin",
+            password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery"
         });
         console.log(id)
@@ -39,10 +39,11 @@ module.exports = {
 
     getAllOrdersByShop: async (id) => {
         const connection = await mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "",
-            database: "grocery"
+            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+            user: "doadmin",
+            password: "AVNS_VNd7F-JtcdTrmgqhqbC",
+            database: "grocery",
+            port: 25060,
         });
         console.log(id)
 
@@ -58,9 +59,9 @@ module.exports = {
     addOrder: async (order) => {
 
         const connection = await mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "",
+            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+            user: "doadmin",
+            password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery"
         });
 
@@ -80,9 +81,9 @@ module.exports = {
     addOrderItem: async (orderItem) => {
 
         const connection = await mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "",
+            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+            user: "doadmin",
+            password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery"
         });
 
@@ -107,9 +108,9 @@ module.exports = {
 
     // updateOrder: async (cartItem) => {
     //     const connection = await mysql.createConnection({
-    //         host: "localhost",
-    //         user: "root",
-    //         password: "",
+    //         host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+    //         user: "doadmin",
+    //         password: "AVNS_VNd7F-JtcdTrmgqhqbC",
     //         database: "grocery"
     //     });
 
@@ -129,9 +130,9 @@ module.exports = {
 
     // deleteOrder: async (id) => {
     //     const connection = await mysql.createConnection({
-    //         host: "localhost",
-    //         user: "root",
-    //         password: "",
+    //         host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+    //         user: "doadmin",
+    //         password: "AVNS_VNd7F-JtcdTrmgqhqbC",
     //         database: "grocery"
     //     });
 
