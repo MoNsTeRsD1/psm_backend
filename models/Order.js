@@ -70,7 +70,8 @@ port: 25060,
 
         var results
         // console.log(order)
-        const [rows, fields] = await connection.execute('INSERT INTO `order` (customerId, status, date) VALUES (?, ?, `2022-04-22 10:34:23`)', [order.customerId, order.status]);
+        order.date = "2022-04-22 10:34:23";
+        const [rows, fields] = await connection.execute('INSERT INTO `order` (customerId, status, date) VALUES (?, ?, ?)', [order.customerId, order.status, order.date]);
         results = rows;
 
 
