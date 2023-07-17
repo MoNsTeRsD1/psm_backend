@@ -13,7 +13,7 @@ module.exports = {
 port: 25060,
         });
 
-        const [results, fields] = await connection.execute('SELECT `order`.*, orderitem.*, product.price, product.name, product.image FROM `order` JOIN `orderitem` ON `order`.orderId = orderitem.orderId JOIN `product` ON orderitem.productId = product.productId WHERE `order`.orderId = ?', [id]);
+        const [results, fields] = await connection.execute('SELECT `order`.*, `orderitem`.*, product.price, product.name, product.image FROM `order` JOIN `orderitem` ON `order`.orderId = `orderitem`.orderId JOIN `product` ON `orderitem`.productId = product.productId WHERE `order`.orderId = ?', [id]);
         // console.log(results)
         connection.end();
         if (!results) {
@@ -51,7 +51,7 @@ port: 25060,
         });
         console.log(id)
 
-        const [results, fields] = await connection.execute('SELECT `order`.*, SUM(`product`.price * `orderItem`.amount) as price, `user`.phoneNumber as customerNumber, `user`.name as customerName FROM `order` JOIN `orderitem` ON `order`.orderId = orderitem.orderId JOIN `product` ON orderitem.productId = product.productId JOIN `user` ON `order`.customerId = `user`.id WHERE `product`.shopId = ? GROUP BY `orderItem`.orderId ORDER BY orderId DESC', [id]);
+        const [results, fields] = await connection.execute('SELECT `order`.*, SUM(`product`.price * `orderitem`.amount) as price, `user`.phoneNumber as customerNumber, `user`.name as customerName FROM `order` JOIN `orderitem` ON `order`.orderId = `orderitem`.orderId JOIN `product` ON `orderitem`.productId = product.productId JOIN `user` ON `order`.customerId = `user`.id WHERE `product`.shopId = ? GROUP BY `orderitem`.orderId ORDER BY orderId DESC', [id]);
         // console.log(results)
         connection.end();
         if (!results) {
@@ -69,7 +69,7 @@ port: 25060,
 port: 25060,
         });
 
-        const [results, fields] = await connection.execute('SELECT SUM(`product`.price * `orderItem`.amount) as revenue FROM `order` JOIN `orderitem` ON `order`.orderId = orderitem.orderId JOIN `product` ON orderitem.productId = product.productId JOIN `user` ON `order`.customerId = `user`.id');
+        const [results, fields] = await connection.execute('SELECT SUM(`product`.price * `orderitem`.amount) as revenue FROM `order` JOIN `orderitem` ON `order`.orderId = `orderitem`.orderId JOIN `product` ON `orderitem`.productId = product.productId JOIN `user` ON `order`.customerId = `user`.id');
         // console.log(results)
         connection.end();
         if (!results) {
@@ -157,7 +157,7 @@ port: 25060,
 
         var results
         // console.log(orderItem)
-        const [rows, fields] = await connection.execute('INSERT INTO orderitem (orderId, productId, amount) VALUES (?, ?, ?)', [orderItem.orderId, orderItem.productId, orderItem.amount]);
+        const [rows, fields] = await connection.execute('INSERT INTO `orderitem` (orderId, productId, amount) VALUES (?, ?, ?)', [orderItem.orderId, orderItem.productId, orderItem.amount]);
         results = rows;
 
 
