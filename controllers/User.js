@@ -42,7 +42,7 @@ module.exports = {
             id: data[0].id,
             name: data[0].name,
             description: data[0].description,
-            // address: data[0].address,
+            shopStatus: data[0].shopStatus,
         }
         res.send(response);
     },
@@ -143,6 +143,17 @@ module.exports = {
     updateUserAdmin: async (req, res) => {
         shopStatus = req.body.newStatus;
         const data = await model.updateUserAdmin(shopStatus, req.params.id);
+        console.log(data);
+        if (data.affectedRows == 0) {
+            res.status(404).send('Shop not found');
+            return;
+        }
+        res.send("Shop status updated successfully");
+    },
+
+    openCloseShop: async (req, res) => {
+        shopStatus = req.body.newStatus;
+        const data = await model.openCloseShop(shopStatus, req.params.id);
         console.log(data);
         if (data.affectedRows == 0) {
             res.status(404).send('Shop not found');

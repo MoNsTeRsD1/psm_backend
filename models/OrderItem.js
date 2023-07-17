@@ -5,7 +5,7 @@ module.exports = {
 
     getCustomer: async (id) => {
         const connection = await mysql.createConnection({
-            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+           host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery",
@@ -14,6 +14,7 @@ port: 25060,
 
         const [results, fields] = await connection.execute('SELECT * FROM `user` WHERE `id` = ? AND `type` = 0', [id]);
         // console.log(results)
+        connection.end();
         if (!results) {
             return null;
         }
@@ -22,7 +23,7 @@ port: 25060,
 
     getShop: async (id) => {
         const connection = await mysql.createConnection({
-            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+           host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery",
@@ -31,6 +32,7 @@ port: 25060,
 
         const [results, fields] = await connection.execute('SELECT * FROM `user` WHERE `id` = ? AND `type` = 1', [id]);
         // console.log(results)
+        connection.end();
         if (!results) {
             return null;
         }
@@ -40,7 +42,7 @@ port: 25060,
     register: async (user) => {
 
         const connection = await mysql.createConnection({
-            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+           host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery",
@@ -67,7 +69,7 @@ port: 25060,
 
     login: async (email) => {
         const connection = await mysql.createConnection({
-            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+           host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery",
@@ -76,6 +78,7 @@ port: 25060,
 
         const [results, fields] = await connection.execute('SELECT * FROM `user` WHERE `email` = ?', [email]);
         // console.log(results)
+        connection.end();
         if (!results) {
             return null;
         }
@@ -84,7 +87,7 @@ port: 25060,
 
     updateUser: async (user) => {
         const connection = await mysql.createConnection({
-            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+           host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery",
@@ -112,7 +115,7 @@ port: 25060,
 
     deleteUser: async (id) => {
         const connection = await mysql.createConnection({
-            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+           host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery",
@@ -121,6 +124,7 @@ port: 25060,
 
         const [results, fields] = await connection.execute('DELETE FROM `user` WHERE `id` = ?', [id]);
         // console.log(results)
+        connection.end();
         if (!results) {
             return null;
         }
@@ -129,7 +133,7 @@ port: 25060,
 
     getAllShops: async () => {
         const connection = await mysql.createConnection({
-            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+           host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery",
@@ -138,6 +142,7 @@ port: 25060,
 
         const [results, fields] = await connection.execute('SELECT * FROM `user` WHERE `type` = 1');
         // console.log(results)
+        connection.end();
         if (!results) {
             return null;
         }

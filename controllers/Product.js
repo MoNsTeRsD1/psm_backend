@@ -35,7 +35,8 @@ module.exports = {
             name: req.body.name,
             image: req.body.image,
             price: req.body.price,
-            shopId: shopId
+            shopId: shopId,
+            stock: req.body.stock,
         }
 
         // console.log(product)
@@ -69,7 +70,8 @@ module.exports = {
             name: req.body.name,
             image: req.body.image,
             price: req.body.price,
-            shopId: shopId
+            shopId: shopId,
+            stock: req.body.stock,
         }
 
         const data = await model.updateProduct(product);
@@ -80,6 +82,11 @@ module.exports = {
             console.log(error);
         }
 
+    },
+
+    updateStock: async (product) => {
+        const data = await model.updateStock(product);
+        return data;
     },
 
     deleteProduct: async (req, res) => {
@@ -124,6 +131,7 @@ module.exports = {
                 description: ' ',
                 price: data[i].price,
                 image: JSON.parse(data[i].image),
+                stock: data[i].stock
             })
         }
 

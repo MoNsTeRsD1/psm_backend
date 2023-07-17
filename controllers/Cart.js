@@ -11,6 +11,7 @@ module.exports = {
             return;
         }
 
+        
         res.send(data[0]);
     },
 
@@ -116,6 +117,7 @@ module.exports = {
                 amount: data[i].amount,
                 price: data[i].price,
                 image: JSON.parse(data[i].image),
+                stock: data[i].stock,
             })
         }
 

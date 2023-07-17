@@ -5,15 +5,16 @@ module.exports = {
 
     getCartItem: async (id) => {
         const connection = await mysql.createConnection({
-            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+           host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery",
 port: 25060,
         });
 
-        const [results, fields] = await connection.execute('SELECT `cartitem`.*, product.price, product.name, product.image FROM `cartitem` JOIN `product` ON `cartitem`.productId = product.productId AND `cartItemId` = ?', [id]);
+        const [results, fields] = await connection.execute('SELECT cartItem.*, product.price, product.name, product.image FROM `cartItem` JOIN `product` ON cartItem.productId = product.productId AND `cartItemId` = ?', [id]);
         // console.log(results)
+        connection.end();
         if (!results) {
             return null;
         }
@@ -23,7 +24,7 @@ port: 25060,
     addCartItem: async (cartItem) => {
 
         const connection = await mysql.createConnection({
-            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+           host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery",
@@ -32,7 +33,7 @@ port: 25060,
 
         var results
         // console.log(cartItem)
-        const [rows, fields] = await connection.execute('INSERT INTO `cartitem` (customerId, productId, amount) VALUES (?, ?, ?)', [cartItem.customerId, cartItem.productId, cartItem.amount]);
+        const [rows, fields] = await connection.execute('INSERT INTO cartItem (customerId, productId, amount) VALUES (?, ?, ?)', [cartItem.customerId, cartItem.productId, cartItem.amount]);
         results = rows;
 
 
@@ -45,7 +46,7 @@ port: 25060,
 
     updateCartItem: async (cartItem) => {
         const connection = await mysql.createConnection({
-            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+           host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery",
@@ -54,7 +55,7 @@ port: 25060,
 
         var results
 
-        const [rows, fields] = await connection.execute('UPDATE `cartitem` SET amount = ? WHERE cartItemId = ?', [cartItem.amount, cartItem.cartItemId]);
+        const [rows, fields] = await connection.execute('UPDATE cartItem SET amount = ? WHERE cartItemId = ?', [cartItem.amount, cartItem.cartItemId]);
         results = rows;
 
 
@@ -68,15 +69,16 @@ port: 25060,
 
     deleteCartItem: async (id) => {
         const connection = await mysql.createConnection({
-            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+           host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery",
 port: 25060,
         });
 
-        const [results, fields] = await connection.execute('DELETE FROM `cartitem` WHERE `cartItemId` = ?', [id]);
+        const [results, fields] = await connection.execute('DELETE FROM `cartItem` WHERE `cartItemId` = ?', [id]);
         // console.log(results)
+        connection.end();
         if (!results) {
             return null;
         }
@@ -85,15 +87,16 @@ port: 25060,
 
     getAllCartItems: async (userId) => {
         const connection = await mysql.createConnection({
-            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+           host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery",
 port: 25060,
         });
 
-        const [results, fields] = await connection.execute('SELECT `cartitem`.*, product.price, product.name, product.image FROM `cartitem` JOIN `product` ON `cartitem`.productId = product.productId  AND `customerId` = ?', [userId]);
+        const [results, fields] = await connection.execute('SELECT cartItem.*, product.price, product.name, product.image, product.stock FROM `cartItem` JOIN `product` ON cartItem.productId = product.productId  AND `customerId` = ?', [userId]);
         // console.log(results)
+        connection.end();
         if (!results) {
             return null;
         }
@@ -103,15 +106,15 @@ port: 25060,
 
     clearCart: async (id) => {
         const connection = await mysql.createConnection({
-            host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
+           host: "db-mysql-sgp1-94191-do-user-14351837-0.b.db.ondigitalocean.com",
             user: "doadmin",
             password: "AVNS_VNd7F-JtcdTrmgqhqbC",
             database: "grocery",
 port: 25060,
         });
 
-        const [results, fields] = await connection.execute('DELETE from `cartitem` WHERE `customerId` = ?', [userId]);
-
+        const [results, fields] = await connection.execute('DELETE from `cartItem` WHERE `customerId` = ?', [userId]);
+        connection.end();
         if (!results) {
             return false;
         }
